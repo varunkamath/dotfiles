@@ -29,6 +29,7 @@ $jobs\
 ${custom.memory_usage}\
 ${custom.battery}\
 ${custom.keyboard_layout}\
+$battery\
 $time\
 $cmd_duration\
 $status\

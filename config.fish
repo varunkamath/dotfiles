@@ -3,6 +3,7 @@ if status is-interactive
 end
 
 function starship_transient_rprompt_func
+  starship module battery
   starship module time
 end
 function starship_transient_prompt_func
