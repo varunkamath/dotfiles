@@ -12,3 +12,4 @@ cp docker.fish ~/.config/fish/completions
 
 fish_update_completions
 
+![alt text](https://i.imgur.com/nhuKLPg.png)
