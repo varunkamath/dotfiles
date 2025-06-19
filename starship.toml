@@ -7,40 +7,72 @@ $git_metrics\
 $line_break\
 $username\
 $hostname \
+$os \
 $character\
  \
 """
 
 right_format = """
-$typst\
+$c\
 $rust\
-$ocaml\
+$golang\
+$nodejs\
+$php\
+$java\
+$kotlin\
+$haskell\
 $python\
-$os\
-$sudo\
+$package\
 $battery\
 $cmd_duration\
 $time"""
+
+palette = 'default'
+
+[palettes.default]
+
+color_ok = 'bright-green'
+color_danger = 'bright-red'
+color_caution = 'bright-yellow'
+
+color_os = 'red'
+color_username = 'green'
+color_directory = 'yellow'
+color_git = 'cyan'
+color_git_added = 'bright-green'
+color_git_deleted = 'bright-red'
+color_env = 'blue'
+color_kubernetes = 'purple'
+color_docker = 'blue'
+color_shell = ''
+color_container = ''
+color_other = ''
+color_time = ''
+color_duration = ''
+
+color_vimcmd_ok = 'green'
+color_vimcmd_replace = 'purple'
+color_vimcmd_visual = 'yellow'
 
 [fill]
 symbol = ' '
 
 [directory]
-style = "blue"
+style = "fg:color_directory"
 
 [username]
 show_always=true
 format = '[$user@]($style)'
-style_user = 'purple bold'
-style_root = 'red bold'
+style_user = "fg:color_username"
+style_root = "bold fg:color_danger"
 
 [hostname]
 ssh_only=false
 format = '[$hostname]($style)'
-style = 'purple bold'
+style = 'white bold'
 
 [character]
-success_symbol = "[->](purple)"
+success_symbol = "[->](green)"
 error_symbol = "[->](red)"
 vimcmd_symbol = "[<-](green)"
 
@@ -48,14 +80,34 @@ vimcmd_symbol = "[<-](green)"
 format = "[$symbol]($style)"
 style = "bold italic bright-purple"
 symbol = "   "
-disabled = false
+disabled = true
 
 [os]
 disabled = false
-style = "bold blue"
+style = "bold white"
 
 [os.symbols]
-Fedora = " "
+Windows = "󰍲"
+Ubuntu = "󰕈"
+SUSE = ""
+Raspbian = "󰐿"
+Macos = ""
+Mint = "󰣭"
+Manjaro = ""
+Linux = "󰌽"
+Gentoo = "󰣨"
+Fedora = "󰣛"
+Alpine = ""
+Amazon = ""
+Android = ""
+Arch = "󰣇"
+Artix = "󰣇"
+EndeavourOS = ""
+CentOS = ""
+Debian = "󰣚"
+Redhat = "󱄛"
+RedHatEnterprise = "󱄛"
+Pop = ""
 
 [git_branch]
 format = "[$branch]($style)"
@@ -76,21 +128,57 @@ style = "bright-black"
 format = " [$duration]($style) "
 style = "yellow"
 
-[typst]
-symbol = "𝐭"
-format = '[ $symbol ($version) ]($style)'
+[package]
+disabled = false
+symbol = "󰏗"
+style = "fg:color_env"
+format = '( [$symbol( $version)]($style) )'
+
+[nodejs]
+symbol = ""
+style = "fg:color_env"
+format = '( [$symbol( $version)]($style) )'
+
+[c]
+symbol = ""
+style = "fg:color_env"
+format = '( [$symbol( $version)]($style) )'
 
 [rust]
-symbol = ""
-format = '[ $symbol ($version) ]($style)'
+symbol = "󱘗"
+style = "fg:color_danger"
+format = '( [$symbol( $version)]($style) )'
 
-[ocaml]
-format = '[ $symbol($version) ]($style)'
-style = 'bold yellow'
+[golang]
+symbol = "󰟓"
+style = "fg:color_env"
+format = '( [$symbol( $version)]($style) )'
+
+[php]
+symbol = ""
+style = "fg:color_env"
+format = '( [$symbol( $version)]($style) )'
+
+[java]
+symbol = ""
+style = "fg:color_env"
+format = '( [$symbol( $version)]($style) )'
+
+[kotlin]
+symbol = ""
+style = "fg:color_env"
+format = '( [$symbol( $version)]($style) )'
+
+[haskell]
+symbol = ""
+style = "fg:color_env"
+format = '( [$symbol( $version)]($style) )'
 
 [python]
-format = '[ $symbol($version) $virtualenv ]($style)'
-style = 'bright-green'
+symbol = ""
+style = "fg:color_env"
+format = '( [$symbol ( $virtualenv)]($style) )'
+version_format = '${raw}'
 
 [battery]
 format = "[ $percentage $symbol]($style)"
