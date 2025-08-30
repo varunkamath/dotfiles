@@ -48,6 +48,9 @@
       "number": {
         "color": "#FFFFFF"
       },
+      "string": {
+        "color": "#a7f2c9"
+      },
       "type": {
         "color": "#ff9a03"
       },
