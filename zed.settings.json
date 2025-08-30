@@ -92,13 +92,12 @@
     "terminal.dim_foreground": "#b6b8bb",
     "terminal.foreground": "#f2f4f8"
   },
-  "icon_theme": "Catppuccin Latte",
+  "icon_theme": "Catppuccin Mocha",
   "ui_font_size": 13,
   "buffer_font_size": 11,
   "theme": {
     "mode": "dark",
     "light": "One Light",
     "dark": "Carbonfox - blurred"
-  },
-  "proxy": "http://proxy-zsgov.external.lmco.com:80"
+  }
 }
