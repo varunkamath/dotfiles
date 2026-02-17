@@ -16,7 +16,6 @@ right_format = """
 $c\
 $rust\
 $golang\
-$nodejs\
 $php\
 $java\
 $kotlin\
@@ -61,14 +60,14 @@ symbol = ' '
 style = "fg:color_directory"
 
 [username]
-show_always=true
-format = '[$user@]($style)'
+show_always = true
+format = '[varun@]($style)'
 style_user = "fg:color_username"
 style_root = "bold fg:color_danger"
 
 [hostname]
-ssh_only=false
-format = '[$hostname]($style)'
+ssh_only = false
+format = '[work]($style)'
 style = 'white bold'
 
 [character]
@@ -91,7 +90,7 @@ Windows = "󰍲"
 Ubuntu = "󰕈"
 SUSE = ""
 Raspbian = "󰐿"
-Macos = ""
+Macos = "󰘳"
 Mint = "󰣭"
 Manjaro = ""
 Linux = "󰌽"

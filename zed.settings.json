@@ -7,9 +7,21 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "edit_predictions": {
+    "provider": "copilot"
+  },
+  "buffer_line_height": "comfortable",
+  "hard_tabs": false,
+  "agent": {
+    "inline_assistant_model": {
+      "provider": "zed.dev",
+      "model": "claude-opus-4-6"
+    }
+  },
   "terminal": {
     "font_family": "FiraCode Nerd Font"
   },
+  "title_bar": { "show_branch_icon": true },
   "inlay_hints": {
     "enabled": true,
     "show_value_hints": true,
@@ -35,69 +47,89 @@
     "metrics": false
   },
   "experimental.theme_overrides": {
-    "syntax": {
-      "boolean": {
-        "color": "#f58d05"
-      },
-      "constant": {
-        "color": "#f58d05"
-      },
-      "constructor": {
-        "color": "#f58d05"
-      },
-      "number": {
-        "color": "#FFFFFF"
-      },
-      "string": {
-        "color": "#a7f2c9"
-      },
-      "type": {
-        "color": "#ff9a03"
-      },
-      "variable": {
-        "color": "#71b5f5"
-      }
-    },
-    "version_control.modified": "#ff9a03",
-    "version_control.renamed": "#ff9a03",
-    "version_control.added": "#54f09a",
-    "editor.active_line_number": "#ff9a03",
-    "created": "#5cf7a2",
-    "modified": "#fade96",
-    "terminal.ansi.black": "#282828",
-    "terminal.ansi.blue": "#78a9ff",
-    "terminal.ansi.bright_black": "#484848",
-    "terminal.ansi.bright_blue": "#8cb6ff",
-    "terminal.ansi.bright_cyan": "#52bdff",
-    "terminal.ansi.bright_green": "#46c880",
-    "terminal.ansi.bright_magenta": "#c8a5ff",
-    "terminal.ansi.bright_red": "#f16da6",
-    "terminal.ansi.bright_white": "#e4e4e5",
-    "terminal.ansi.bright_yellow": "#2dc7c4",
-    "terminal.ansi.cyan": "#33b1ff",
-    "terminal.ansi.dim_black": "#222222",
-    "terminal.ansi.dim_blue": "#6690d9",
-    "terminal.ansi.dim_cyan": "#2b96d9",
-    "terminal.ansi.dim_green": "#1fa25a",
-    "terminal.ansi.dim_magenta": "#a27fd9",
-    "terminal.ansi.dim_red": "#ca4780",
-    "terminal.ansi.dim_white": "#bebebe",
-    "terminal.ansi.dim_yellow": "#07a19e",
-    "terminal.ansi.green": "#25be6a",
-    "terminal.ansi.magenta": "#be95ff",
-    "terminal.ansi.red": "#ee5396",
-    "terminal.ansi.white": "#dfdfe0",
-    "terminal.ansi.yellow": "#f5b351",
-    "terminal.bright_foreground": "#f9fbff",
-    "terminal.dim_foreground": "#b6b8bb",
-    "terminal.foreground": "#f2f4f8"
+    // "syntax": {
+    //   "boolean": {
+    //     "color": "#f58d05",
+    //   },
+    //   "constant": {
+    //     "color": "#f58d05",
+    //   },
+    //   "constructor": {
+    //     "color": "#f58d05",
+    //   },
+    //   "number": {
+    //     "color": "#FFFFFF",
+    //   },
+    //   "string": {
+    //     "color": "#a7f2c9",
+    //   },
+    //   "type": {
+    //     "color": "#ff9a03",
+    //   },
+    //   "variable": {
+    //     "color": "#71b5f5",
+    //   },
+    // },
+    // "version_control.modified": "#ff9a03",
+    // "version_control.renamed": "#ff9a03",
+    // "ignored": "#636363",
+    // "editor.active_line_number": "#ff9a03",
+    // "created": "#5cf7a2",
+    // "modified": "#fade96",
+    // "terminal.ansi.black": "#282828",
+    // "terminal.ansi.blue": "#78a9ff",
+    // "terminal.ansi.bright_black": "#484848",
+    // "terminal.ansi.bright_blue": "#8cb6ff",
+    // "terminal.ansi.bright_cyan": "#52bdff",
+    // "terminal.ansi.bright_green": "#46c880",
+    // "terminal.ansi.bright_magenta": "#c8a5ff",
+    // "terminal.ansi.bright_red": "#f16da6",
+    // "terminal.ansi.bright_white": "#e4e4e5",
+    // "terminal.ansi.bright_yellow": "#2dc7c4",
+    // "terminal.ansi.cyan": "#33b1ff",
+    // "terminal.ansi.dim_black": "#222222",
+    // "terminal.ansi.dim_blue": "#6690d9",
+    // "terminal.ansi.dim_cyan": "#2b96d9",
+    // "terminal.ansi.dim_green": "#1fa25a",
+    // "terminal.ansi.dim_magenta": "#a27fd9",
+    // "terminal.ansi.dim_red": "#ca4780",
+    // "terminal.ansi.dim_white": "#bebebe",
+    // "terminal.ansi.dim_yellow": "#07a19e",
+    // "terminal.ansi.green": "#25be6a",
+    // "terminal.ansi.magenta": "#be95ff",
+    // "terminal.ansi.red": "#ee5396",
+    // "terminal.ansi.white": "#dfdfe0",
+    // "terminal.ansi.yellow": "#f5b351",
+    // "terminal.bright_foreground": "#f9fbff",
+    // "terminal.dim_foreground": "#b6b8bb",
+    // "terminal.foreground": "#f2f4f8",
   },
-  "icon_theme": "Catppuccin Mocha",
+  "icon_theme": "Catppuccin Latte",
   "ui_font_size": 13,
   "buffer_font_size": 11,
   "theme": {
     "mode": "dark",
-    "light": "One Light",
-    "dark": "Carbonfox - blurred"
+    "light": "Arrakis Day",
+    "dark": "Jellybeans"
+    // "dark": "Michi Modern Dark Purple",
+  },
+  "languages": {
+    "Python": {
+      "language_servers": ["ty", "!basedpyright"]
+    }
+  },
+  "lsp": {
+    "protobuf-language-server": {
+      "binary": {
+        "path": "buf",
+        "arguments": ["beta", "lsp"]
+      }
+    },
+    "ty": {
+      "binary": {
+        "path": "/Users/varun/.local/bin/ty",
+        "arguments": ["server"]
+      }
+    }
   }
 }
