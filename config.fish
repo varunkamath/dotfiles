@@ -49,7 +49,7 @@ export UV_NATIVE_TLS=true
 source ~/.orbstack/shell/init2.fish 2>/dev/null || :
 
 # pnpm
-set -gx PNPM_HOME "/Users/e439996/Library/pnpm"
+set -gx PNPM_HOME "/Users/varun/Library/pnpm"
 if not string match -q -- $PNPM_HOME $PATH
   set -gx PATH "$PNPM_HOME" $PATH
 end
