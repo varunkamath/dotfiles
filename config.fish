@@ -60,3 +60,14 @@ set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
 
 fish_add_path $HOME/.local/bin
+
+# opencode
+fish_add_path /Users/varun/.opencode/bin
+
+# zellij
+abbr -a zj "zellij"
+abbr -a zja "zellij attach --create"
+abbr -a zjs "zellij list-sessions"
+abbr -a zjr "zellij run --floating --"
+abbr -a zjk "zellij kill-session"
+abbr -a zjda "zellij delete-all-sessions"
