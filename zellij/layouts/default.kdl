@@ -1,0 +1,149 @@
+layout {
+    default_tab_template {
+        // zjstatus tab bar at the top
+        pane size=1 borderless=true {
+            plugin location="file:/Users/varun/.config/zellij/plugins/zjstatus.wasm" {
+                format_left   "{mode}#[fg=#1C1B19,bg=#FBB829,bold] {session} #[bg=default] "
+                format_center "{tabs}"
+                format_right  "#[fg=#918175]{datetime}"
+                format_space  "#[bg=default]"
+
+                border_enabled  "false"
+
+                mode_normal        "#[fg=#1C1B19,bg=#4A6B4A]  NORMAL #[bg=default] "
+                mode_locked        "#[fg=#1C1B19,bg=#7D4445]  LOCKED #[bg=default] "
+                mode_resize        "#[fg=#1C1B19,bg=#8B5E30]  RESIZE #[bg=default] "
+                mode_pane          "#[fg=#1C1B19,bg=#4A6B4A]  PANE #[bg=default] "
+                mode_tab           "#[fg=#1C1B19,bg=#8B7535]  TAB #[bg=default] "
+                mode_scroll        "#[fg=#1C1B19,bg=#3D6080]  SCROLL #[bg=default] "
+                mode_enter_search  "#[fg=#1C1B19,bg=#3D6080]  SEARCH #[bg=default] "
+                mode_search        "#[fg=#1C1B19,bg=#3D6080]  SEARCH #[bg=default] "
+                mode_session       "#[fg=#1C1B19,bg=#7D3D55]  SESSION #[bg=default] "
+                mode_move          "#[fg=#1C1B19,bg=#8B5E30]  MOVE #[bg=default] "
+                mode_tmux          "#[fg=#1C1B19,bg=#8B5E30]  TMUX #[bg=default] "
+
+                tab_normal              "#[fg=#6B6462] {index} {name} "
+                tab_normal_fullscreen   "#[fg=#6B6462] {index} {name} [] "
+                tab_normal_sync         "#[fg=#6B6462] {index} {name} <> "
+                tab_active              "#[fg=#1C1B19,bg=#BAA67F,bold] {index} {name} #[bg=default]"
+                tab_active_fullscreen   "#[fg=#1C1B19,bg=#BAA67F,bold] {index} {name} [] #[bg=default]"
+                tab_active_sync         "#[fg=#1C1B19,bg=#BAA67F,bold] {index} {name} <> #[bg=default]"
+                tab_separator           "#[fg=#3A3835] "
+
+                datetime        " {format} "
+                datetime_format "%H:%M"
+                datetime_timezone "America/Los_Angeles"
+            }
+        }
+        children
+        // zjstatus keybinding hints at the bottom
+        pane size=1 borderless=true {
+            plugin location="file:/Users/varun/.config/zellij/plugins/zjstatus.wasm" {
+                format_left   "{mode}"
+                format_center ""
+                format_right  ""
+                format_space  ""
+
+                border_enabled  "false"
+
+                mode_normal       "#[fg=#FCE8C3] #[fg=#918175,bg=#2D2B28]Ctrl + #[fg=#FCE8C3,bg=#7D4445] g LOCK #[fg=#918175,bg=#2D2B28] | #[fg=#FCE8C3,bg=#4A6B4A] p PANE #[fg=#918175,bg=#2D2B28] | #[fg=#FCE8C3,bg=#8B7535] t TAB #[fg=#918175,bg=#2D2B28] | #[fg=#FCE8C3,bg=#8B5E30] n RESIZE #[fg=#918175,bg=#2D2B28] | #[fg=#FCE8C3,bg=#8B5E30] h MOVE #[fg=#918175,bg=#2D2B28] | #[fg=#FCE8C3,bg=#3D6080] s SCROLL #[fg=#918175,bg=#2D2B28] | #[fg=#FCE8C3,bg=#7D3D55] o SESSION #[fg=#918175,bg=#2D2B28] | #[fg=#FCE8C3,bg=#8B5E30] b TMUX #[fg=#918175,bg=#2D2B28] | q quit  Opt + #[fg=#918175,bg=#2D2B28]f float | n pane | [/] layout "
+                mode_locked       "#[fg=#FCE8C3,bg=#7D4445] LOCKED #[fg=#918175,bg=#2D2B28] Ctrl+g to unlock "
+                mode_pane         "#[fg=#FCE8C3,bg=#4A6B4A] PANE #[fg=#918175,bg=#2D2B28] hjkl move | n new | d down | r right | s stacked | x close | c rename | f fullscreen | w float | e embed | p switch | esc back "
+                mode_tab          "#[fg=#FCE8C3,bg=#8B7535] TAB #[fg=#918175,bg=#2D2B28] hjkl navigate | 1-9 goto | n new | r rename | x close | b break | [/] break left/right | s sync | tab toggle | esc back "
+                mode_resize       "#[fg=#FCE8C3,bg=#8B5E30] RESIZE #[fg=#918175,bg=#2D2B28] hjkl increase | HJKL decrease | +/- all | esc back "
+                mode_move         "#[fg=#FCE8C3,bg=#8B5E30] MOVE #[fg=#918175,bg=#2D2B28] hjkl move pane | n/tab next | p prev | esc back "
+                mode_scroll       "#[fg=#FCE8C3,bg=#3D6080] SCROLL #[fg=#918175,bg=#2D2B28] jk scroll | ud half-page | hl page | s search | e edit | esc back "
+                mode_enter_search "#[fg=#FCE8C3,bg=#3D6080] SEARCH #[fg=#918175,bg=#2D2B28] type to search | enter confirm | esc cancel "
+                mode_search       "#[fg=#FCE8C3,bg=#3D6080] SEARCH #[fg=#918175,bg=#2D2B28] n next | p prev | c case | w wrap | o whole-word | esc back "
+                mode_session      "#[fg=#FCE8C3,bg=#7D3D55] SESSION #[fg=#918175,bg=#2D2B28] w manager | d detach | c config | p plugins | a about | s share | esc back "
+                mode_tmux         "#[fg=#FCE8C3,bg=#8B5E30] TMUX #[fg=#918175,bg=#2D2B28] c new tab | n/p tabs | \" split down | %% split right | hjkl move | x close | d detach | z zoom | space layout | esc back "
+            }
+        }
+    }
+    swap_tiled_layout name="vertical" {
+        tab max_panes=5 {
+            pane split_direction="vertical" {
+                pane
+                pane { children; }
+            }
+        }
+        tab max_panes=8 {
+            pane split_direction="vertical" {
+                pane { children; }
+                pane { pane; pane; pane; pane; }
+            }
+        }
+        tab max_panes=12 {
+            pane split_direction="vertical" {
+                pane { children; }
+                pane { pane; pane; pane; pane; }
+                pane { pane; pane; pane; pane; }
+            }
+        }
+    }
+    swap_tiled_layout name="horizontal" {
+        tab max_panes=5 {
+            pane
+            pane
+        }
+        tab max_panes=8 {
+            pane {
+                pane split_direction="vertical" { children; }
+                pane split_direction="vertical" { pane; pane; pane; pane; }
+            }
+        }
+        tab max_panes=12 {
+            pane {
+                pane split_direction="vertical" { children; }
+                pane split_direction="vertical" { pane; pane; pane; pane; }
+                pane split_direction="vertical" { pane; pane; pane; pane; }
+            }
+        }
+    }
+    swap_tiled_layout name="stacked" {
+        tab min_panes=5 {
+            pane split_direction="vertical" {
+                pane
+                pane stacked=true { children; }
+            }
+        }
+    }
+    swap_floating_layout name="staggered" {
+        floating_panes
+    }
+    swap_floating_layout name="enlarged" {
+        floating_panes max_panes=10 {
+            pane { x "1%"; y 0; width "100%"; height "100%"; }
+            pane { x "6%"; y 1; width "100%"; height "100%"; }
+            pane { x "11%"; y 2; width "100%"; height "100%"; }
+            pane { x "16%"; y 3; width "100%"; height "100%"; }
+            pane { x "21%"; y 4; width "100%"; height "100%"; }
+            pane { x "26%"; y 5; width "100%"; height "100%"; }
+            pane { x "31%"; y 6; width "100%"; height "100%"; }
+            pane { x "36%"; y 7; width "100%"; height "100%"; }
+            pane { x "41%"; y 8; width "100%"; height "100%"; }
+            pane { x "46%"; y 9; width "100%"; height "100%"; }
+        }
+    }
+    swap_floating_layout name="spread" {
+        floating_panes max_panes=1 {
+            pane { y "50%"; x "50%"; }
+        }
+        floating_panes max_panes=2 {
+            pane { x "1%"; y "25%"; width "45%"; }
+            pane { x "50%"; y "25%"; width "45%"; }
+        }
+        floating_panes max_panes=3 {
+            pane focus=true { y "55%"; width "45%"; height "45%"; }
+            pane { x "1%"; y "1%"; width "45%"; }
+            pane { x "50%"; y "1%"; width "45%"; }
+        }
+        floating_panes max_panes=4 {
+            pane { x "1%"; y "1%"; width "45%"; height "45%"; }
+            pane focus=true { x "50%"; y "1%"; width "45%"; height "45%"; }
+            pane { x "1%"; y "50%"; width "45%"; height "45%"; }
+            pane { x "50%"; y "50%"; width "45%"; height "45%"; }
+        }
+    }
+    tab
+}

@@ -273,11 +273,28 @@ plugins {
 load_plugins {
 }
 
+// Custom srcery with visible status-bar backgrounds
+themes {
+    srcery-custom {
+        fg "#FCE8C3"
+        bg "#1C1B19"
+        black "#3A3835"
+        red "#EF2F27"
+        green "#519F50"
+        yellow "#FBB829"
+        blue "#2C78BF"
+        magenta "#E02C6D"
+        cyan "#0AAEB3"
+        white "#BAA67F"
+        orange "#FF5F00"
+    }
+}
+
 // Shell & UI
 default_shell "fish"
-theme "srcery"
+theme "srcery-custom"
 simplified_ui true
-pane_frames false
+pane_frames true
 default_layout "default"
 
 // Behavior
