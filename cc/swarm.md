@@ -3,7 +3,7 @@ Create an agent team to accomplish this task: $ARGUMENTS
 Break the work into logical subtasks however you see fit. Follow these rules strictly:
 
 1. ALL agents MUST be Opus model agents (`model: "opus"`).
-2. Every agent (including yourself as team lead) MUST load `/beads` at the start and use beads (`bd`) for all task tracking throughout their work.
+2. Every agent (including yourself as team lead) MUST load `/br` at the start and use beads_rust (`br`) for all task tracking throughout their work.
 3. CRITICAL: At least one agent MUST be a dedicated code reviewer. This agent should:
    - Wait for all implementation agents to finish their work
    - Review every file changed by the other agents

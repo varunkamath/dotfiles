@@ -3,7 +3,7 @@ Research this topic thoroughly using a team of web search agents: $ARGUMENTS
 Follow these rules strictly:
 
 1. ALL agents MUST be Opus model agents (`model: "opus"`).
-2. Every agent MUST load `/beads` at the start and use beads (`bd`) for all task tracking.
+2. Every agent MUST load `/br` at the start and use beads_rust (`br`) for all task tracking.
 3. ALL agents are strictly READ-ONLY. They must NOT edit, write, or create any files.
 4. Use Jina `expand_query` first to generate diverse search angles from the user's topic.
 5. Spawn 3-5 research agents, each assigned a distinct angle or sub-question.

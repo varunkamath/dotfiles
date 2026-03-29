@@ -17,4 +17,4 @@ When you are uncertain about knowledge, or the user doubts your answer, use Jina
 
 Never use emojis in output to files. Keep code comments terse / concise and reserved only for complicated logic. Avoid opinionated or "changelog" / breadcrumb comments like "changed from X to XX".
 
-IMPORTANT: Use 'bd' for task tracking. If ever running init, ALWAYS run with --stealth
+IMPORTANT: Use 'br' (beads_rust) for task tracking. If ever running init, ALWAYS run with --stealth
