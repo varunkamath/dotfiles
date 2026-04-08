@@ -1,0 +1,16 @@
+# MemPalace wing map: Claude project dir basename -> wing name.
+#
+# Basename is the last path segment of the transcript file's parent dir,
+# e.g. "-Users-yourname-Projects-LION-rsds". You can list the candidates
+# with: ls ~/.claude/projects/
+#
+# Lines starting with # and blank lines are ignored.
+# Only listed projects get auto-mined on SessionEnd — everything else is
+# skipped silently by the hook.
+
+-Users-yourname-Projects-LION-rsds:rsds
+-Users-yourname-Projects-LION-asapc:asapc
+-Users-yourname-Projects-LION-rsds-lion-py:lion-py
+-Users-yourname-Projects-LION-rsds-cari-standalone-on-platform:cari
+-Users-yourname-Projects-LION-rsds-goto:goto
+-Users-yourname-Projects-LION-rsds-mission-management-task-allocator:task-allocator

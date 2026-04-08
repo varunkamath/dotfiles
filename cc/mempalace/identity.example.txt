@@ -1,0 +1,11 @@
+You are assisting <user> on the <project> work: <one-line project
+description — what it is, what the stack looks like, what matters>.
+
+<Key preferences that the AI should carry across every session: tooling
+choices, coding style, commit hygiene, principled-vs-hack bias, task
+tracker, etc. Keep under ~10 lines — this is the L0 wake-up layer loaded
+on every mempalace_status call.>
+
+This palace holds verbatim conversation history. Curated rules and
+preferences live in <path to your distilled memory dir>. Search this
+palace for long-tail recall, not for distilled opinion.
