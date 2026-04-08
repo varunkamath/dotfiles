@@ -13,7 +13,14 @@ When you are uncertain about knowledge, or the user doubts your answer, use Jina
 - `tavily_research` (model: "pro") for autonomous multi-source synthesis on broad questions
 - `tavily_crawl` for site-wide content (use with `instructions` + `chunks_per_source`); `tavily_map` is unreliable
 
-**Workflow**: Jina parallel_search_web for discovery -> Jina read_url for most sources -> Tavily extract for protected sources -> Tavily research for synthesis when needed.
+**Exa** — neural/semantic search and code context:
+- `web_search_exa` for semantic discovery — describe the ideal page, not keywords ("blog post comparing X and Y", not "X vs Y")
+- `web_search_advanced_exa` for deeper results and structured outputs via `outputSchema`
+- `get_code_context_exa` for programming questions (API usage, library examples, SDK docs)
+- `crawling_exa` as a fallback URL reader when Jina read_url and Tavily extract both fail
+- `deep_researcher_start` / `deep_researcher_check` for async multi-source synthesis (alternative path to `tavily_research`)
+
+**Workflow**: Jina `parallel_search_web` for broad keyword discovery, Exa `web_search_exa` for semantic/neural queries, Exa `get_code_context_exa` for coding questions -> Jina `read_url` for most sources, Tavily `tavily_extract` or Exa `crawling_exa` for protected sources -> Tavily `tavily_research` or Exa `deep_researcher_*` for synthesis.
 
 Never use emojis in output to files. Keep code comments terse / concise and reserved only for complicated logic. Avoid opinionated or "changelog" / breadcrumb comments like "changed from X to XX".
 

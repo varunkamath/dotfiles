@@ -5,7 +5,7 @@ Follow these rules strictly:
 1. ALL agents MUST be Opus model agents (`model: "opus"`).
 2. Every agent MUST load `/br` at the start and use beads_rust (`br`) for all task tracking.
 3. ALL agents are strictly READ-ONLY. They must NOT edit, write, or create any files. They may only use Read, Glob, Grep, WebSearch, WebFetch, and other read-only tools.
-4. All agents are free to use web research (Jina MCP tools, WebSearch, WebFetch) at any time.
+4. All agents are free to use web research (Jina / Tavily / Exa MCP tools, WebSearch, WebFetch) at any time.
 5. Divide the codebase into logical sections and assign each agent a section to review.
 6. Each agent should report their findings as a message back to the team lead.
 7. As team lead, synthesize all findings into a comprehensive report for the user.

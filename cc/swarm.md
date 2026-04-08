@@ -9,7 +9,7 @@ Break the work into logical subtasks however you see fit. Follow these rules str
    - Review every file changed by the other agents
    - Flag issues, suggest improvements, and verify correctness
 4. IMPORTANT: After the reviewer finishes and the team is shut down, YOU (the team lead / main thread) MUST run `@"code-simplifier:code-simplifier (agent)"` on the changed code yourself. Subagents cannot invoke other subagents — only the main thread can run the code-simplifier agent.
-5. All agents are free to use web research (Jina / tavily MCP tools, WebSearch, WebFetch) at any time to look up documentation, best practices, or any information they need.
+5. All agents are free to use web research (Jina / Tavily / Exa MCP tools, WebSearch, WebFetch) at any time to look up documentation, best practices, or any information they need.
 6. Agents should coordinate through the shared task list and direct messages.
 
 Plan the team composition first, then create the team and spawn the agents.

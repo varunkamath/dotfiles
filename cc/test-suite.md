@@ -29,7 +29,7 @@ A well-written test suite should survive any refactor. If you could rewrite the 
 1. ALL agents MUST be Opus model agents (`model: "opus"`).
 2. Every agent (including yourself as team lead) MUST load `/br` at the start and use beads_rust (`br`) for all task tracking throughout their work.
 3. Before writing any tests, agents MUST read and understand the code under test. Understand the public contract -- inputs, outputs, errors, side effects -- before writing a single assertion.
-4. All agents are free to use web research (Jina / tavily MCP tools, WebSearch, WebFetch) at any time to look up testing frameworks, assertion libraries, or best practices.
+4. All agents are free to use web research (Jina / Tavily / Exa MCP tools, WebSearch, WebFetch) at any time to look up testing frameworks, assertion libraries, or best practices. Exa `get_code_context_exa` is especially useful for finding assertion library usage and framework examples.
 5. CRITICAL: At least one agent MUST be a dedicated reviewer who:
    - Waits for all test-writing agents to finish
    - Reviews every test file for violations of the principles above

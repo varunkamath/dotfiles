@@ -10,10 +10,10 @@ Follow these rules strictly:
 
 ## Tool usage per agent
 
-Agents have access to both Jina and Tavily MCP tools. Use them according to their strengths:
+Agents have access to Jina, Tavily, and Exa MCP tools. Use them according to their strengths:
 
 **Jina** (primary discovery + reading):
-- `parallel_search_web` / `search_web` for broad discovery
+- `parallel_search_web` / `search_web` for broad keyword discovery
 - `search_arxiv` for academic papers (arXiv only; use search_web for VLDB/SIGMOD/other venues)
 - `read_url` / `parallel_read_url` to read every source before citing it
 - `sort_by_relevance` to filter large result sets
@@ -24,11 +24,18 @@ Agents have access to both Jina and Tavily MCP tools. Use them according to thei
 - `tavily_research` (model: "pro") for autonomous synthesis of broad sub-topics
 - `tavily_crawl` with `instructions` + `chunks_per_source` for site-wide content
 
+**Exa** (neural/semantic search + code context + alt synthesis):
+- `web_search_exa` for semantic/neural discovery — describe the ideal page rather than keywords ("blog post comparing X and Y", not "X vs Y")
+- `web_search_advanced_exa` for deeper results with structured outputs via `outputSchema`
+- `get_code_context_exa` for programming/API/library questions
+- `crawling_exa` as a fallback URL reader when Jina and Tavily both fail
+- `deep_researcher_start` / `deep_researcher_check` as an alternative async synthesis path to `tavily_research`
+
 **Rules**:
-- Every search MUST be complemented with read_url or tavily_extract to read the actual content
+- Every search MUST be complemented with read_url, tavily_extract, or crawling_exa to read the actual content
 - NEVER cite a source that hasn't been read
-- If Jina read_url fails on a URL, fall back to tavily_extract
-- Use parallel_search_web (up to 5 concurrent queries) for efficient broad discovery
+- Extraction fallback order: Jina `read_url` -> Tavily `tavily_extract` -> Exa `crawling_exa`
+- Use Jina `parallel_search_web` (up to 5 concurrent queries) for broad keyword discovery and Exa `web_search_exa` in parallel for semantic coverage
 
 6. Each agent reports findings as a message back to the team lead with: key facts, source URLs, and any conflicting information found.
 7. As team lead, synthesize all agent findings into a single comprehensive report for the user. The report must include:
